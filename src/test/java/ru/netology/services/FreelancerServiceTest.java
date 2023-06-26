@@ -11,11 +11,11 @@ class FreelancerServiceTest {
     @Test
     public void calculateTest1(){
         FreelancerService service = new FreelancerService();
-        int icome = 10_000;
-        int expense = 3_000;
+        int income = 10_000;
+        int expenses = 3_000;
         int threshold = 20_000;
 
-        int actual = service.calculate (icome, expense,threshold);
+        int actual = service.calculate (income, expenses,threshold);
         int expected = 3;
 
         Assertions.assertEquals (expected, actual);
@@ -24,11 +24,11 @@ class FreelancerServiceTest {
     @Test
     public void calculateTest2(){
         FreelancerService service = new FreelancerService();
-        int icome = 100_000;
-        int expense = 60_000;
+        int income = 100_000;
+        int expenses = 60_000;
         int threshold = 150_000;
 
-        int actual = service.calculate (icome, expense,threshold);
+        int actual = service.calculate (income, expenses,threshold);
         int expected = 2;
 
         Assertions.assertEquals (expected, actual);
@@ -36,9 +36,10 @@ class FreelancerServiceTest {
     @ParameterizedTest
     @CsvFileSource(resources = "test_data.csv")
 
-    public void CalculateWithParams (int icome, int expense, int threshold, int expected) {
+    public void testCalculateWithParams (int income, int expenses, int threshold, int expected) {
         FreelancerService service = new FreelancerService();
-        int actual = service.calculate (icome,expense,threshold);
+
+        int actual = service.calculate(income, expenses, threshold);
 
         Assertions.assertEquals (expected, actual);
     }
