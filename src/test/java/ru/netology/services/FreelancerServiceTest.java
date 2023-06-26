@@ -39,7 +39,7 @@ class FreelancerServiceTest {
     public void testCalculateWithParams (int income, int expenses, int threshold, int expected) {
         FreelancerService service = new FreelancerService();
 
-        int actual = service.calculate(income, expenses, threshold);
+        int actual = service.calculate(income,expenses,threshold);
 
         Assertions.assertEquals (expected, actual);
     }
